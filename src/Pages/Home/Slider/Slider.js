@@ -5,7 +5,7 @@ import img3 from '../../../astes/victoria-priessnitz-JFAPl7brL6U-unsplash.jpg'
 import img4 from '../../../astes/alvaro-cvg-mW8IZdX7n8E-unsplash.jpg'
 const Slider = () => {
     return (
-        <div className="carousel w-3/5 mx-auto">
+        <div className="carousel w-3/5 mx-auto mt-4 mb-4">
   <div id="slide1" className="carousel-item relative w-full">
     <img src={img1} alt='' />
     <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
