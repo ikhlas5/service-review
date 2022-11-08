@@ -13,7 +13,7 @@ const SingleService = ({service}) => {
     <p>{text.length > 100 ? text.slice(0,150)+'...':text}</p>
     <p>${price}</p>
     <div className="card-actions justify-end">
-        <Link to={`/serviceDetails/${_id}`}>
+        <Link to={`/services/${_id}`}>
       <button className="btn btn-primary">Show Details</button>
         </Link>
     </div>
