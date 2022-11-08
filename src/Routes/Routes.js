@@ -13,19 +13,23 @@ export const router=createBrowserRouter([
         children:[
             {
                 path:"/",
-                element:<Home></Home>
+                element:<Home></Home>,
+                loader:()=>fetch('http://localhost:5000/home')
             },
             {
                 path:"home",
-                element:<Home></Home>
+                element:<Home></Home>,
+                loader:()=>fetch('http://localhost:5000/home')
             },
             {
                 path:"services",
-                element:<Service></Service>
+                element:<Service></Service>,
+                loader:()=>fetch(`http://localhost:5000/services`)
             },
             {
-                path:"/services/:id",
+                path:"services/:id",
                 element:<ServiceDetails></ServiceDetails>,
+                loader:({params})=>fetch(`http://localhost:5000/services/${params.id}`)
                 
             },
             {
