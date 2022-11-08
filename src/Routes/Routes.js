@@ -4,6 +4,7 @@ import Blogs from "../Pages/Blogs/Blogs";
 import Home from "../Pages/Home/Home";
 import Orders from "../Pages/Orders/Orders";
 import Service from "../Pages/Service/Service";
+import ServiceDetails from "../Pages/Service/ServiceDetails/ServiceDetails";
 
 export const router=createBrowserRouter([
     {
@@ -21,6 +22,11 @@ export const router=createBrowserRouter([
             {
                 path:"services",
                 element:<Service></Service>
+            },
+            {
+                path:"/services/:id",
+                element:<ServiceDetails></ServiceDetails>,
+                
             },
             {
                 path:"/orders",

@@ -5,6 +5,7 @@ const Home = () => {
     return (
         <div>
             <Slider></Slider>
+            <button className="btn btn-outline btn-warning ">See More</button>
         </div>
     );
 };
