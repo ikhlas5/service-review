@@ -11,9 +11,9 @@ const ServiceDetails = () => {
   <figure><img src={img} alt='' /></figure>
   <div className="card-body">
     <h2 className="card-title">{service_name}</h2>
-    <p>{text}</p>
+    <p className='text-sm'>{text}</p>
     <p className='text-xl font-medium'>Price: ${price}</p>
-    <p>ratting: {ratting}</p>
+    <p className='text-sm'>ratting: {ratting}</p>
     <div className="card-actions justify-end">
         {/* <Link to={`/services/${_id}`}>
       <button className="btn btn-primary"></button>
