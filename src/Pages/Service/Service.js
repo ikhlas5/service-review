@@ -7,6 +7,7 @@ const Service = () => {
   console.log(services)
     return (
         <div>
+          <h1 className='text-3xl font-semibold text-orange-600 m-5'>Our Services</h1>
             <div className='grid md:grid-cols-3 gap-3 m-10'>
               {
                 services.map((service)=><SingleService
