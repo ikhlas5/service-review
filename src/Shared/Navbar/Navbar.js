@@ -1,10 +1,17 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../UseContext/UseContext';
-
+import {  Image } from "react-bootstrap";
+import ReactTooltip from 'react-tooltip';
 const Navbar = () => {
-  const {user}=useContext(AuthContext);
   
+  const {user,logOut}=useContext(AuthContext);
+
+  const handleLogout = () => {
+    logOut()
+        .then(() => { })
+        .catch((error) => console.error(error))
+}
     return (
         <div className="navbar bg-base-100 shadow-xl">
   <div className="navbar-start">
@@ -19,7 +26,16 @@ const Navbar = () => {
           <Link to="/Orders">Add Services</Link>
         </li>
         <li><Link to="/blogs">Blogs</Link></li>
-        <li><Link to="/login">Login</Link></li>
+        {
+        user?.email ?
+        <>
+           <li><Link to="/login">Login</Link></li>
+        </>
+           :
+            <li><button onClick={handleLogout}>LogOut</button></li>
+        
+      }
+        <li><Link to="/singup">SingUp</Link></li>
         <li><Link to="/about">About</Link></li>
       </ul>
     </div>
@@ -35,7 +51,17 @@ const Navbar = () => {
         </Link>
       </li>
       <li><Link to="/blogs">Blogs</Link></li>
-      <li><Link to="/login">Login</Link></li>
+      {/* <li><Link to="/login">Login</Link></li> */}
+      {
+        user?.uid || user?.photoURL ?
+        <>
+           <li><Link to="/login">Login</Link></li>
+        </>
+           :
+            <><button onClick={handleLogout}>LogOut</button></>
+        
+      }
+      <li><Link to="/singup">SingUp</Link></li>
       <li><Link to="/about">About</Link></li>
     </ul>
   </div>

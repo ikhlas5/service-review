@@ -1,10 +1,14 @@
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../UseContext/UseContext';
 import img from '../../astes/20944201.jpg'
 const Singup = () => {
 
     const {createUser} = useContext(AuthContext);
+    const navigate=useNavigate();
+    const location=useLocation();
+    const from=location.state?.from?.pathname || '/';
+    
     const handleSignUp = event =>{
         event.preventDefault();
         const form = event.target;
@@ -14,6 +18,8 @@ const Singup = () => {
         createUser(email, password)
         .then(result => {
             const user = result.user;
+            form.reset();
+            navigate(from,{replace:true})
             console.log(user);
         })
         .catch(err => console.error(err));

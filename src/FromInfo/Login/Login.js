@@ -3,13 +3,16 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import img from '../../astes/20944201.jpg'
 import { AuthContext } from '../../UseContext/UseContext';
 import { FaGithub, FaGoogle } from 'react-icons/fa';
+import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 
 const Login = () => {
 
-    const {userSingIn} = useContext(AuthContext);
+    const {userSingIn,providerLogIn,providerGitHub} = useContext(AuthContext);
     const navigate=useNavigate();
     const location=useLocation();
     const from=location.state?.from?.pathname || '/';
+    const googleProvider = new GoogleAuthProvider();
+    const githubProvider = new GithubAuthProvider()
 
     const handleLogin = event =>{
         event.preventDefault();
@@ -25,6 +28,29 @@ const Login = () => {
             navigate(from,{replace:true})
         })
         .then(error => console.log(error));
+    }
+
+    const googleSingIn =() => {
+        providerLogIn(googleProvider )
+        .then(res => {
+            const user = res.user;
+            navigate('/')
+            // console.log(user);
+        })
+        .catch(error => {
+            console.error(error);
+        })
+    }
+    const handdleGithub  = () => {
+        providerGitHub(githubProvider)
+        .then(res => {
+            const user = res.user;
+            navigate('/')
+            // console.log(user);
+        })
+        .catch(error => {
+            console.error(error);
+        })
     }
     return (
         <div className="hero w-full my-20">
@@ -57,8 +83,8 @@ const Login = () => {
                 <p className='text-center'>Are You New? <Link className='text-orange-600 font-bold' to="/singup">Sign Up</Link> </p>
 
                 <div className='flex items-center justify-center m-3'>         
-                     <button className='flex items-center mr-2 '><FaGoogle className='mr-2'></FaGoogle>Google</button>
-                     <button className='flex items-center '><FaGithub className='mr-2'></FaGithub> GitHub</button>
+                     <button onClick={googleSingIn} className='flex items-center mr-2 '><FaGoogle className='mr-2'></FaGoogle>Google</button>
+                     <button onClick={handdleGithub} className='flex items-center '><FaGithub className='mr-2'></FaGithub> GitHub</button>
                 </div>
             </div>
         </div>
