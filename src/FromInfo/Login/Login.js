@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import img from '../../astes/20944201.jpg'
 import { AuthContext } from '../../UseContext/UseContext';
-
+import { FaGithub, FaGoogle } from 'react-icons/fa';
 
 const Login = () => {
 
@@ -56,9 +56,9 @@ const Login = () => {
                 </form>
                 <p className='text-center'>Are You New? <Link className='text-orange-600 font-bold' to="/singup">Sign Up</Link> </p>
 
-                <div>
-                     <button>Google</button>
-                     <button>GitHub</button>
+                <div className='flex items-center justify-center m-3'>         
+                     <button className='flex items-center mr-2 '><FaGoogle className='mr-2'></FaGoogle>Google</button>
+                     <button className='flex items-center '><FaGithub className='mr-2'></FaGithub> GitHub</button>
                 </div>
             </div>
         </div>
