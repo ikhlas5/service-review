@@ -1,12 +1,11 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../UseContext/UseContext';
-import {  Image } from "react-bootstrap";
 import ReactTooltip from 'react-tooltip';
 const Navbar = () => {
-  
+ 
   const {user,logOut}=useContext(AuthContext);
-
+  console.log(user);
   const handleLogout = () => {
     logOut()
         .then(() => { })
@@ -27,14 +26,18 @@ const Navbar = () => {
         </li>
         <li><Link to="/blogs">Blogs</Link></li>
         {
-        user?.email ?
+          user?.email ?
+        
         <>
-           <li><Link to="/login">Login</Link></li>
+        <li><button onClick={handleLogout}>LogOut</button></li>
+       <img className='w-7 rounded-p' src={user?.photoURL} alt="" />
         </>
            :
-            <li><button onClick={handleLogout}>LogOut</button></li>
-        
+           <>
+           <li><Link to="/login">Login</Link></li>
+        </>
       }
+      
         <li><Link to="/singup">SingUp</Link></li>
         <li><Link to="/about">About</Link></li>
       </ul>
@@ -53,12 +56,18 @@ const Navbar = () => {
       <li><Link to="/blogs">Blogs</Link></li>
       {/* <li><Link to="/login">Login</Link></li> */}
       {
-        user?.uid || user?.photoURL ?
-        <>
-           <li><Link to="/login">Login</Link></li>
-        </>
-           :
-            <><button onClick={handleLogout}>LogOut</button></>
+         user?.email ?
+         <>
+         <li><button onClick={handleLogout}>LogOut</button></li>
+        <img className='w-14 rounded-full' src={user?.photoURL} alt="" />
+        <ReactTooltip id="registerTip" place="top" effect="solid">
+                                                {user.displayName}
+                                            </ReactTooltip>
+         </>
+            :
+            <>
+            <li><Link to="/login">Login</Link></li>
+         </>
         
       }
       <li><Link to="/singup">SingUp</Link></li>

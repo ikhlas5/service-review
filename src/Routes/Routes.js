@@ -4,7 +4,7 @@ import Singup from "../FromInfo/SingUp/Singup";
 import Main from "../Layout/Main";
 import Blogs from "../Pages/Blogs/Blogs";
 import Home from "../Pages/Home/Home";
-import Orders from "../Pages/Orders/Orders";
+
 import Service from "../Pages/Service/Service";
 import ServiceDetails from "../Pages/Service/ServiceDetails/ServiceDetails";
 
@@ -34,10 +34,10 @@ export const router=createBrowserRouter([
                 loader:({params})=>fetch(`http://localhost:5000/services/${params.id}`)
                 
             },
-            {
-                path:"orders",
-                element:<Orders></Orders>
-            },
+            // {
+            //     path:"orders",
+            //     element:<Orders></Orders>
+            // },
             {
                 path:"blogs",
                 element:<Blogs></Blogs>

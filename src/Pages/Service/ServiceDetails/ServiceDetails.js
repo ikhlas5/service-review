@@ -1,11 +1,57 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
 import { PhotoProvider, PhotoView } from 'react-photo-view';
 import 'react-photo-view/dist/react-photo-view.css';
+import { AuthContext } from '../../../UseContext/UseContext';
 
 const ServiceDetails = () => {
     const {ratting,img,text,service_name,price,_id}=useLoaderData();
-    console.log(ratting)
+
+    const {user}= useContext(AuthContext)
+  
+
+    const handleReview=(event)=>{
+      event.preventDefault();
+      const form = event.target;
+      const name = `${form.firstName.value}`;
+      const email = user?.email || 'unregistered';
+      const phone = form.phone.value;
+      const photoUrl = form.photoUrl.value;
+      const message = form.message.value;
+
+      const review = {
+        service: _id,
+        serviceName: service_name,
+        price,
+        customer: name,
+        email,
+        phone,
+        photoUrl:img,
+        message
+    }
+
+    fetch('http://localhost:5000/reviews', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(review)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                if(data.acknowledged){
+                    alert('Order placed successfully')
+                    form.reset();
+                    
+                }
+            })
+            .catch(er => console.error(er));
+
+
+
+    }
+
     return (
         <div>
             <h1 className='text-center text-2xl m-3 font-medium text-orange-600'>Name of Photographer:  {service_name}</h1>
@@ -28,6 +74,19 @@ const ServiceDetails = () => {
     </div>
   </div>
 </div>
+            <form onSubmit={handleReview}>
+                <h2 className="text-4xl">You are about to order: {}</h2>
+                
+                <div className='grid grid-cols-1 lg:grid-cols-2 gap-4'>
+                    <input name="firstName" type="text" placeholder="First Name" className="input input-ghost w-full  input-bordered" />
+                    <input name="photoUrl" type="text" placeholder="photoUrl" defaultValue={user?.photoUrl} className="input input-ghost w-full  input-bordered"  />
+                    <input name="phone" type="text" placeholder="Your Phone" className="input input-ghost w-full  input-bordered" required />
+                    <input name="email" type="text" placeholder="Your email"  defaultValue={user?.email} className="input input-ghost w-full  input-bordered" readOnly />
+                </div>
+                <textarea name="message" className="textarea textarea-bordered h-24 w-full" placeholder="Your Message" required></textarea>
+
+                <input className='btn' type="submit" value="Place Your Order" />
+            </form>
         </div>
     );
 };
