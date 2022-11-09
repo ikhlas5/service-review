@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../UseContext/UseContext';
-import img from '../../astes/alvaro-cvg-mW8IZdX7n8E-unsplash.jpg'
+import img from '../../astes/20944201.jpg'
 const Singup = () => {
 
     const {createUser} = useContext(AuthContext);

@@ -10,7 +10,7 @@ const SingleService = ({service}) => {
   <figure><img src={img} alt='' /></figure>
   <div className="card-body">
     <h2 className="card-title">{service_name}</h2>
-    <p>{text.length > 100 ? text.slice(0,150)+'...':text}</p>
+    <p>{text.length > 100 ? text.slice(0,100)+'...':text}</p>
     <p>${price}</p>
     <div className="card-actions justify-end">
         <Link to={`/services/${_id}`}>

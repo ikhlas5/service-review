@@ -13,7 +13,7 @@ const Navbar = () => {
         <li><Link>Home</Link></li>
         <li><Link to='/services'>Services</Link></li>
         <li tabIndex={0}>
-          <Link to="/Orders"> Orders</Link>
+          <Link to="/Orders">Add Services</Link>
         </li>
         <li><Link to="/blogs">Blogs</Link></li>
         <li><Link to="/login">Login</Link></li>
@@ -27,7 +27,7 @@ const Navbar = () => {
       <li><Link to="/Services">Services</Link></li>
       <li tabIndex={0}>
         <Link to="/Orders">
-           Orders
+          Add Services
         </Link>
       </li>
       <li><Link to="/blogs">Blogs</Link></li>
