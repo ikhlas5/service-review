@@ -47,14 +47,19 @@ const Login = () => {
                         </label>
                         <input type="text" name='password' placeholder="password" className="input input-bordered" />
                         <label className="label">
-                            <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
+                            <Link to='' className="label-text-alt link link-hover">Forgot password?</Link>
                         </label>
                     </div>
                     <div className="form-control mt-6">
                         <input className="btn btn-primary" type="submit" value="Login" />
                     </div>
                 </form>
-                <p className='text-center'>New to Genius Car <Link className='text-orange-600 font-bold' to="/singup">Sign Up</Link> </p>
+                <p className='text-center'>Are You New? <Link className='text-orange-600 font-bold' to="/singup">Sign Up</Link> </p>
+
+                <div>
+                     <button>Google</button>
+                     <button>GitHub</button>
+                </div>
             </div>
         </div>
     </div>
