@@ -4,11 +4,12 @@ import Singup from "../FromInfo/SingUp/Singup";
 import Main from "../Layout/Main";
 import Blogs from "../Pages/Blogs/Blogs";
 import Home from "../Pages/Home/Home";
+import AddService from "../Pages/Review/AddServices/AddService";
 import Review from "../Pages/Review/Review";
 
 import Service from "../Pages/Service/Service";
 import ServiceDetails from "../Pages/Service/ServiceDetails/ServiceDetails";
-import PrivateRoute from "./PrivateRoute/PrivateRoute";
+// import PrivateRoute from "./PrivateRoute/PrivateRoute";
 
 
 export const router=createBrowserRouter([
@@ -39,7 +40,11 @@ export const router=createBrowserRouter([
             },
             {
                 path:"review",
-                element:<PrivateRoute><Review></Review></PrivateRoute>
+                element:<Review></Review>
+            },
+            {
+                path:"addService",
+                element:<AddService></AddService>
             },
             {
                 path:"blogs",

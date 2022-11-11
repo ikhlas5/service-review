@@ -21,14 +21,16 @@ const Navbar = () => {
       <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
         <li><Link to='/home'>Home</Link></li>
         <li><Link to='/services'>Services</Link></li>
-        <li tabIndex={0}>
-          <Link to="/Orders">Add Services</Link>
-        </li>
+        
         <li><Link to="/blogs">Blogs</Link></li>
         {
           user?.email ?
         
         <>
+         <li tabIndex={0}>
+          <Link to="/addService">Add Services</Link>
+        </li>
+        <li><Link to="/review">My Review</Link></li>
         <li><button onClick={handleLogout}>LogOut</button></li>
        <img className='w-7 rounded-p' src={user?.photoURL} alt="" />
         </>
@@ -39,26 +41,28 @@ const Navbar = () => {
       }
       
         <li><Link to="/singup">SingUp</Link></li>
-        <li><Link to="/about">About</Link></li>
       </ul>
     </div>
+
+    {/* Mobaile Device */}
+
     <Link className="btn btn-ghost normal-case text-xl">wedding photographer</Link>
   </div>
   <div className="navbar-center hidden lg:flex">
     <ul className="menu menu-horizontal p-0">
       <li><Link to="/home">Home</Link></li>
       <li><Link to="/Services">Services</Link></li>
-      <li tabIndex={0}>
-        <Link to="/Orders">
+      <li><Link to="/blogs">Blogs</Link></li>
+    
+      {
+         user?.email ?
+         <>
+         <li tabIndex={0}>
+        <Link to="/addService">
           Add Services
         </Link>
       </li>
       <li><Link to="/review">My Review</Link></li>
-      <li><Link to="/blogs">Blogs</Link></li>
-      {/* <li><Link to="/login">Login</Link></li> */}
-      {
-         user?.email ?
-         <>
          <li><button onClick={handleLogout}>LogOut</button></li>
         <img className='w-14 rounded-full' src={user?.photoURL} alt="" />
         <ReactTooltip id="registerTip" place="top" effect="solid">
@@ -72,7 +76,7 @@ const Navbar = () => {
         
       }
       <li><Link to="/singup">SingUp</Link></li>
-      <li><Link to="/about">About</Link></li>
+      
     </ul>
   </div>
   <div className="navbar-end">

@@ -7,6 +7,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 const Review = () => {
     const {user}=useContext(AuthContext);
+    console.log(user);
     const [review, setReview] = useState([])
     // const data =useLoaderData();
     // console.log(data);

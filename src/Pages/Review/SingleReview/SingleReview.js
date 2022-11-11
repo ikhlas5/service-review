@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { FaTrash, FaTrashAlt } from 'react-icons/fa';
+import {  FaTrashAlt } from 'react-icons/fa';
 
 const SingleReview = ({item, handleDelete, handleStatusUpdate}) => {
     const { _id, serviceName, phone, customer, price, service, status,photoUrl,email,message } = item;

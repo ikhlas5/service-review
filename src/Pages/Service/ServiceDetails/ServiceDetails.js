@@ -79,7 +79,7 @@ const ServiceDetails = () => {
   </div>
 </div>
             <form onSubmit={handleReview} className='w-8/12 mx-auto'>
-                <h2 className="text-4xl">You are about to order: {service_name}</h2>
+                <h2 className="text-4xl">You are about to feedback: {service_name}</h2>
                 
                 <div className='grid grid-cols-1 lg:grid-cols-2 gap-4'>
                     <input name="firstName" type="text" placeholder="First Name" className="input input-ghost w-full  input-bordered" />
@@ -89,7 +89,7 @@ const ServiceDetails = () => {
                 </div>
                 <textarea name="message" className="textarea textarea-bordered h-24 w-full mt-3 mb" placeholder="Your Message" required></textarea>
 
-                <input className='btn flex justify-center' type="submit" value="Place Your Order" />
+                <input className='btn flex justify-center mb-4' type="submit" value="Place Your Order" />
             </form>
             <ToastContainer></ToastContainer>
         </div>
