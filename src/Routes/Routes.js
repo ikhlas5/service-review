@@ -20,22 +20,22 @@ export const router=createBrowserRouter([
             {
                 path:"/",
                 element:<Home></Home>,
-                loader:()=>fetch('https://service-review-75d6b.web.app/home')
+                loader:()=>fetch('https://b6a11-service-review-server-side-ikhlas5.vercel.app/home')
             },
             {
                 path:"home",
                 element:<Home></Home>,
-                loader:()=>fetch('https://service-review-75d6b.web.app/home')
+                loader:()=>fetch('https://b6a11-service-review-server-side-ikhlas5.vercel.app/home')
             },
             {
                 path:"services",
                 element:<Service></Service>,
-                loader:()=>fetch(`https://service-review-75d6b.web.app/services`)
+                loader:()=>fetch(`https://b6a11-service-review-server-side-ikhlas5.vercel.app/services`)
             },
             {
                 path:"services/:id",
                 element:<ServiceDetails></ServiceDetails>,
-                loader:({params})=>fetch(`https://service-review-75d6b.web.app/services/${params.id}`)
+                loader:({params})=>fetch(`https://b6a11-service-review-server-side-ikhlas5.vercel.app/services/${params.id}`)
                 
             },
             {

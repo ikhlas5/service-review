@@ -16,7 +16,7 @@ const AddService = () => {
 
         const serviceInfo = {img,name,serviceName,text,price};
 
-        fetch('https://service-review-75d6b.web.app/AddService', {
+        fetch('https://b6a11-service-review-server-side-ikhlas5.vercel.app/AddService', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

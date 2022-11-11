@@ -32,7 +32,7 @@ const ServiceDetails = () => {
         message
     }
 
-    fetch('https://service-review-75d6b.web.app/reviews', {
+    fetch('https://b6a11-service-review-server-side-ikhlas5.vercel.app/reviews', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

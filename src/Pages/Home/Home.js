@@ -7,7 +7,7 @@ import img2 from '../../astes/cameraman-recording-wedding-ceremony-using-camera-
 
 const Home = () => {
     const services=useLoaderData();
-
+    console.log(services)
     console.log(services)
     return (
         <div>
