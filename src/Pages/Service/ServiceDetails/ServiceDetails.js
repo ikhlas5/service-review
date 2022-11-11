@@ -16,7 +16,8 @@ const ServiceDetails = () => {
       const name = `${form.firstName.value}`;
       const email = user?.email || 'unregistered';
       const phone = form.phone.value;
-      const photoUrl = form.photoUrl.value;
+    //   const photoUrl = form.photoUrl.value;
+      const photo_Url = user?.photoUrl;
       const message = form.message.value;
 
       const review = {
@@ -26,7 +27,7 @@ const ServiceDetails = () => {
         customer: name,
         email,
         phone,
-        photoUrl:img,
+        photo_Url,
         message
     }
 
@@ -41,7 +42,7 @@ const ServiceDetails = () => {
             .then(data => {
                 console.log(data)
                 if(data.acknowledged){
-                    alert('Order placed successfully')
+                    alert('Add successfully')
                     form.reset();
                     
                 }
@@ -74,8 +75,8 @@ const ServiceDetails = () => {
     </div>
   </div>
 </div>
-            <form onSubmit={handleReview}>
-                <h2 className="text-4xl">You are about to order: {}</h2>
+            <form onSubmit={handleReview} className='w-8/12 mx-auto'>
+                <h2 className="text-4xl">You are about to order: {service_name}</h2>
                 
                 <div className='grid grid-cols-1 lg:grid-cols-2 gap-4'>
                     <input name="firstName" type="text" placeholder="First Name" className="input input-ghost w-full  input-bordered" />
@@ -83,9 +84,9 @@ const ServiceDetails = () => {
                     <input name="phone" type="text" placeholder="Your Phone" className="input input-ghost w-full  input-bordered" required />
                     <input name="email" type="text" placeholder="Your email"  defaultValue={user?.email} className="input input-ghost w-full  input-bordered" readOnly />
                 </div>
-                <textarea name="message" className="textarea textarea-bordered h-24 w-full" placeholder="Your Message" required></textarea>
+                <textarea name="message" className="textarea textarea-bordered h-24 w-full mt-3 mb" placeholder="Your Message" required></textarea>
 
-                <input className='btn' type="submit" value="Place Your Order" />
+                <input className='btn flex justify-center' type="submit" value="Place Your Order" />
             </form>
         </div>
     );
