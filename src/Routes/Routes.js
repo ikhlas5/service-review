@@ -38,8 +38,7 @@ export const router=createBrowserRouter([
             },
             {
                 path:"review",
-                element:<PrivetRoute><Review></Review></PrivetRoute>,
-                loader:()=>fetch(`http://localhost:5000/reviews`)
+                element:<PrivetRoute><Review></Review></PrivetRoute>
             },
             {
                 path:"blogs",
