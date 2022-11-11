@@ -8,6 +8,7 @@ import Review from "../Pages/Review/Review";
 
 import Service from "../Pages/Service/Service";
 import ServiceDetails from "../Pages/Service/ServiceDetails/ServiceDetails";
+import PrivetRoute from "./ProdectedRotue/privetRoute";
 
 export const router=createBrowserRouter([
     {
@@ -37,7 +38,7 @@ export const router=createBrowserRouter([
             },
             {
                 path:"review",
-                element:<Review></Review>,
+                element:<PrivetRoute><Review></Review></PrivetRoute>,
                 loader:()=>fetch(`http://localhost:5000/reviews`)
             },
             {

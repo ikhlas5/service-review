@@ -3,7 +3,8 @@ import { Link, useLoaderData } from 'react-router-dom';
 import { PhotoProvider, PhotoView } from 'react-photo-view';
 import 'react-photo-view/dist/react-photo-view.css';
 import { AuthContext } from '../../../UseContext/UseContext';
-
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 const ServiceDetails = () => {
     const {ratting,img,text,service_name,price,_id}=useLoaderData();
 
@@ -42,7 +43,9 @@ const ServiceDetails = () => {
             .then(data => {
                 console.log(data)
                 if(data.acknowledged){
-                    alert('Add successfully')
+                    toast.success('Add successfully',{
+                      position:'top-center'
+                    })
                     form.reset();
                     
                 }
@@ -88,6 +91,7 @@ const ServiceDetails = () => {
 
                 <input className='btn flex justify-center' type="submit" value="Place Your Order" />
             </form>
+            <ToastContainer></ToastContainer>
         </div>
     );
 };

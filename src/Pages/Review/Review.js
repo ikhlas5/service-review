@@ -2,6 +2,8 @@ import React, { useContext, useEffect, useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import { AuthContext } from '../../UseContext/UseContext';
 import SingleReview from './SingleReview/SingleReview';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Review = () => {
     const {user}=useContext(AuthContext);
@@ -25,7 +27,9 @@ const Review = () => {
             .then(data => {
                 console.log(data);
                 if (data.deletedCount > 0){
-                    alert('deleted successfully');
+                    toast.success('deleted successfully',{
+                        position: "top-center"
+                    });
                     const remaining = review.filter(odr => odr._id !== id);
                     setReview(remaining);
                 }
@@ -84,6 +88,7 @@ const Review = () => {
                 </table>
             </div>
         </div>
+        <ToastContainer></ToastContainer>
         </div>
     );
 };

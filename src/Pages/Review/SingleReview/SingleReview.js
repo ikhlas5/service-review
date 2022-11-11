@@ -26,7 +26,8 @@ const SingleReview = ({item, handleDelete, handleStatusUpdate}) => {
                         <div className="rounded w-24 h-24">
                             {
                                 reviewService?.photoUrl && 
-                                <img src={photoUrl} alt="Avatar Tailwind CSS Component" />}
+                                <img src={reviewService.photoUrl} alt="Avatar Tailwind CSS Component" />
+                            }
                         </div>
                     </div>
                     <div>
