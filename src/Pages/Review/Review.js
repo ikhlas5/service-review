@@ -7,13 +7,13 @@ import 'react-toastify/dist/ReactToastify.css';
 
 const Review = () => {
     const {user}=useContext(AuthContext);
-    console.log(user);
+    console.log();
     const [review, setReview] = useState([])
     // const data =useLoaderData();
     // console.log(data);
 
     useEffect(() => {
-        fetch(`https://b6a11-service-review-server-side-ikhlas5.vercel.app/reviews?email=${user?.email}`)
+        fetch(`https://service-review-75d6b.web.app/reviews?email=${user?.email}`)
             .then(res => res.json())
             .then(data => setReview(data))
     }, [user?.email]);
@@ -21,7 +21,7 @@ const Review = () => {
     const handleDelete = id =>{
         const proceed = window.confirm('Are you sure, you want to cancel this order');
         if(proceed){
-            fetch(`https://b6a11-service-review-server-side-ikhlas5.vercel.app/reviews/${id}`, {
+            fetch(`https://service-review-75d6b.web.app/reviews/${id}`, {
                 method: 'DELETE'
             })
             .then(res => res.json())
@@ -39,7 +39,7 @@ const Review = () => {
     };
 
     const handleStatusUpdate = id => {
-        fetch(`https://b6a11-service-review-server-side-ikhlas5.vercel.app/reviews${id}`, {
+        fetch(`https://service-review-75d6b.web.app/reviews${id}`, {
             method: 'PATCH', 
             headers: {
                 'content-type': 'application/json'
