@@ -5,7 +5,7 @@ import { AuthContext } from '../../UseContext/UseContext';
 
 
 
-const PrivetRoute = ({children}) => {
+const PrivateRoute = ({children}) => {
 
     const {user, loading} = useContext(AuthContext);
     const location  = useLocation();
@@ -19,5 +19,4 @@ const PrivetRoute = ({children}) => {
     
 };
 
-export default PrivetRoute;
-
+export default PrivateRoute;
