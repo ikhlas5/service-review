@@ -7,7 +7,7 @@ const SingleReview = ({item, handleDelete, handleStatusUpdate}) => {
     const [reviewService, setReviewService] = useState({});
 
     useEffect(() => {
-        fetch(`http://localhost:5000/reviews/${service}`)
+        fetch(`https://b6a11-service-review-server-side-ikhlas5.vercel.app/reviews/${service}`)
             .then(res => res.json())
             .then(data => setReviewService(data));
     }, [service])
